@@ -63,19 +63,17 @@ class SuperheroesDetailFragment : Fragment() {
                 val call: Call<SuperheroesDetailDto> = repository.getSuperheroesDetail(ids)
 
                 call.enqueue(object : Callback<SuperheroesDetailDto> {
-                    override fun onResponse(p0: Call<SuperheroesDetailDto>, response: Response<SuperheroesDetailDto>) {
+                    override fun onResponse(call: Call<SuperheroesDetailDto>, response: Response<SuperheroesDetailDto>) {
                         binding.apply {
                             pbLoading.visibility = View.INVISIBLE
-                            tvTitle.text = response.body()?.nombre
+                            tvTitle.text = response.body()?.nombre ?: ""
                             Glide.with(requireActivity())
                                 .load(response.body()?.url_image)
                                 .into(ivImage)
-                            tvLongDesc.append(response.body()?.description)
-                            tvPosition.append(response.body()?.published_at)
-                            tvCountry.append(response.body()?.poder)
-                            tvFoot.append(response.body()?.armas)
-
-
+                            tvLongDesc.append(response.body()?.description ?: "")
+                            tvPosition.append(response.body()?.published_at ?: "")
+                            tvCountry.append(response.body()?.poder ?: "")
+                            tvFoot.append(response.body()?.armas ?: "")
                         }
                     }
 
