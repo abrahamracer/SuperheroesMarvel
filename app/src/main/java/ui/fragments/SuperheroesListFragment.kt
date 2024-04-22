@@ -22,7 +22,6 @@ import ui.adapters.SuperheroesAdapter
 import utils.Constants
 
 
-
 class SuperheroesListFragment : Fragment() {
 
     private var _binding: FragmentSuperheroesListBinding? = null
@@ -39,7 +38,7 @@ class SuperheroesListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentSuperheroesListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -49,7 +48,7 @@ class SuperheroesListFragment : Fragment() {
         _binding = null
     }
 
-    //El usuario ya ve el fragment en pantalla
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,7 +59,7 @@ class SuperheroesListFragment : Fragment() {
 
             call.enqueue(object : Callback<List<SuperheroesDto>> {
                 override fun onResponse(p0: Call<List<SuperheroesDto>>, response: Response<List<SuperheroesDto>>) {
-                    //Respuesta del server
+
 
                     binding.pbLoading.visibility = View.GONE
 
@@ -83,7 +82,7 @@ class SuperheroesListFragment : Fragment() {
                 }
 
                 override fun onFailure(p0: Call<List<SuperheroesDto>>, error: Throwable) {
-                    //Manejo del error
+
                     binding.pbLoading.visibility = View.GONE
 
                     Toast.makeText(

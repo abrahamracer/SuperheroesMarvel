@@ -55,7 +55,7 @@ class SuperheroesDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Programar la conexión
+
         repository = (requireActivity().application as SuperheroesRF).repository
 
         lifecycleScope.launch {
@@ -63,10 +63,7 @@ class SuperheroesDetailFragment : Fragment() {
                 val call: Call<SuperheroesDetailDto> = repository.getSuperheroesDetail(ids)
 
                 call.enqueue(object : Callback<SuperheroesDetailDto> {
-                    override fun onResponse(
-                        p0: Call<SuperheroesDetailDto>,
-                        response: Response<SuperheroesDetailDto>
-                    ) {
+                    override fun onResponse(p0: Call<SuperheroesDetailDto>, response: Response<SuperheroesDetailDto>) {
                         binding.apply {
                             pbLoading.visibility = View.INVISIBLE
                             tvTitle.text = response.body()?.nombre
@@ -83,7 +80,7 @@ class SuperheroesDetailFragment : Fragment() {
                     }
 
                     override fun onFailure(p0: Call<SuperheroesDetailDto>, p1: Throwable) {
-                        //Manejar el error sin conexión
+
                         binding.apply {
                             pbLoading.visibility = View.INVISIBLE
 

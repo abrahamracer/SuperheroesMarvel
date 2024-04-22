@@ -39,6 +39,7 @@
                         android:id="@+id/tvTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:gravity="center_horizontal"
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
@@ -58,37 +59,40 @@
                         android:id="@+id/tvLongDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:paddingLeft="15dp"
                         android:paddingTop="15dp"
                         android:paddingRight="15dp"
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="Description: " />
+                        android:text="Descripcion: " />
 
                     <TextView
                         android:id="@+id/tvPosition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:paddingLeft="15dp"
                         android:paddingTop="15dp"
                         android:paddingRight="15dp"
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="Published at: " />
+                        android:text="Primera aparicion: " />
 
                     <TextView
                         android:id="@+id/tvCountry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:paddingLeft="15dp"
                         android:paddingTop="15dp"
                         android:paddingRight="15dp"
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="Poder: " />
+                        android:text="Poderes: " />
 
 
 
@@ -96,13 +100,14 @@
                         android:id="@+id/tvFoot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:paddingLeft="15dp"
                         android:paddingTop="15dp"
                         android:paddingRight="15dp"
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="Armas: " />
+                        android:text="Arma principal: " />
 
 
                 </LinearLayout>

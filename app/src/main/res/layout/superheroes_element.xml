@@ -8,6 +8,7 @@
     android:foreground="@drawable/custom_ripple"
     android:padding="4dp">
 
+
     <View
         android:id="@+id/viewBackground"
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:riv_corner_radius="10dp" />
 
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
@@ -44,6 +46,9 @@
         app:layout_constraintStart_toEndOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         tools:text="Title" />
+
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

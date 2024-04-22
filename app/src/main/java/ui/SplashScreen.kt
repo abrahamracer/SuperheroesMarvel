@@ -16,14 +16,12 @@ class SplashScreen : AppCompatActivity() {
         binding = SplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Aquí puedes agregar cualquier lógica necesaria antes de pasar a la actividad principal
 
-        // Ejemplo: espera 2 segundos y luego abre la actividad principal
         Handler().postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000) // 2000 milisegundos = 2 segundos
+        }, 2000)
     }
 
 }
