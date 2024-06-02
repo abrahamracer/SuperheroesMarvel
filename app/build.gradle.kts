@@ -61,6 +61,9 @@ dependencies {
     //Imágenes con bordes redondeados
     implementation(libs.roundedimageview)
 
+    // Para usar Youtube Player API
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

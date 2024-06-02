@@ -16,5 +16,7 @@ data class SuperheroesDetailDto(
     @SerializedName("url_image")
     val url_image: String? = null, // Comma was missing here
     @SerializedName("armas")
-    val armas: String? = null
+    val armas: String? = null,
+    @SerializedName("yt_video")
+    val ytVideo: String? = null
 )

@@ -3,6 +3,7 @@ package ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.avv.superheroesmarvel.R
 import com.avv.superheroesmarvel.databinding.SuperheroesElementBinding
 import com.bumptech.glide.Glide
 import data.remote.model.SuperheroesDto
@@ -23,18 +24,23 @@ class SuperheroesAdapter (
         val superheroe = superheroes[position]
         holder.bind(superheroe)
 
-        //Cargamos con glide la imagen al imageView
-        Glide.with(holder.itemView.context)
-        Glide.with(holder.itemView.context)
-            .load(superheroe.url_image)
-            .into(holder.ivThumbnail)
+        // Cargamos la imagen con Glide
+        try {
+            Glide.with(holder.itemView.context)
+                .load(superheroe.url_image)
+                .into(holder.ivThumbnail)
+        } catch (e: Exception) {
+            // Manejar la excepción, por ejemplo, cargar una imagen de fallback
+            Glide.with(holder.itemView.context)
+                .load(R.drawable.marvel) // Placeholder o imagen de fallback
+                .into(holder.ivThumbnail)
+        }
 
-        //Con Picasso
-
-
+        // Configuramos el clic del elemento
         holder.itemView.setOnClickListener {
             onPlayerClicked(superheroe)
         }
     }
+
 
 }

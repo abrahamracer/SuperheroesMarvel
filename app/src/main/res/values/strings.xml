@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SuperheroesMarvel</string>
+    <string name="error">error_loading_data</string>
 </resources>
