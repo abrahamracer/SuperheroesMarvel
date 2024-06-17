@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.2"
+agp = "8.4.0"
 coreKtxVersion = "1.9.0"
 glide = "4.13.2"
 kotlin = "1.9.0"
@@ -16,6 +16,7 @@ constraintlayout = "2.1.4"
 picasso = "2.71828"
 retrofit = "2.11.0"
 roundedimageview = "2.3.0"
+firebaseAuthKtx = "23.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,7 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

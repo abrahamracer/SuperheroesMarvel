@@ -1,14 +1,10 @@
 package ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.avv.superheroesmarvel.R
 import com.avv.superheroesmarvel.databinding.ActivityMainBinding
 import ui.fragments.SuperheroesListFragment
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container,SuperheroesListFragment())
+                .replace(R.id.fragment_container, SuperheroesListFragment())
                 .commit()
         }
     }

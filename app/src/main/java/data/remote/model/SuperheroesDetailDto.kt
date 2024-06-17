@@ -18,5 +18,9 @@ data class SuperheroesDetailDto(
     @SerializedName("armas")
     val armas: String? = null,
     @SerializedName("yt_video")
-    val ytVideo: String? = null
+    val ytVideo: String? = null,
+    @SerializedName("lat")
+    val lat: Double? = null,
+    @SerializedName("long")
+    val long: Double? = null
 )

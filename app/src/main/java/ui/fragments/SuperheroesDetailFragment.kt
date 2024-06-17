@@ -12,6 +12,13 @@ import application.SuperheroesRF
 import com.avv.superheroesmarvel.R
 import com.avv.superheroesmarvel.databinding.FragmentSuperheroesDetailBinding
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.FirebaseApp
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import data.SuperheroesRepository
@@ -31,6 +38,7 @@ class SuperheroesDetailFragment : Fragment() {
     private var id: String? = null
 
     private lateinit var repository: SuperheroesRepository
+    private lateinit var map: GoogleMap
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +46,11 @@ class SuperheroesDetailFragment : Fragment() {
         arguments?.let { args ->
             id = args.getString(ID)
             Log.d(Constants.LOGTAG, "Id recibido: $id")
+        }
+
+        // Inicializa Firebase si aún no lo está
+        if (!::repository.isInitialized) {
+            FirebaseApp.initializeApp(requireContext())
         }
     }
 
@@ -94,6 +107,10 @@ class SuperheroesDetailFragment : Fragment() {
                                             // Load default video if no video ID is provided
                                             youTubePlayer.loadVideo("0AwxHCI_BnA", 0f)
                                         }
+                                        // Inicializar el mapa después de que el reproductor de YouTube esté listo
+                                        response.body()?.let { playerDetail ->
+                                            initializeMap(playerDetail.lat ?: 0.0, playerDetail.long ?: 0.0)
+                                        }
                                     }
                                 })
 
@@ -126,5 +143,35 @@ class SuperheroesDetailFragment : Fragment() {
                     putString(ID, gameId)
                 }
             }
+    }
+
+    private fun initializeMap(lat: Double, long: Double) {
+        val mapFragment =
+            childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync { googleMap ->
+            // Aquí puedes realizar operaciones con el mapa una vez que esté listo
+            map = googleMap
+            createMarker(lat, long)
+            // Por ejemplo, puedes establecer la configuración del mapa aquí
+            // map.uiSettings.isZoomControlsEnabled = true
+        }
+    }
+
+    private fun createMarker(lat: Double, long: Double){
+        val coordinates = LatLng(lat, long)
+
+        val marker = MarkerOptions()
+            .position(coordinates)
+            .title("Estadio jugador")
+            .snippet("FIFA")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.marvel))
+
+        map.addMarker(marker)
+
+        map.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(coordinates, 16f),
+            4000,
+            null
+        )
     }
 }

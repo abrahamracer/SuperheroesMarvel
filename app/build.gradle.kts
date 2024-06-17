@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -44,27 +44,35 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
 
-    //Para retrofit y Gson
+    // Para retrofit y Gson
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    //Adicional para el interceptor
+    // Adicional para el interceptor
     implementation(libs.logging.interceptor)
 
-    //Glide y Picasso
+    // Glide y Picasso
     implementation(libs.glide)
     implementation(libs.picasso)
 
-    //Para las corrutinas
+    // Para las corrutinas
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    //Imágenes con bordes redondeados
+    // Imágenes con bordes redondeados
     implementation(libs.roundedimageview)
 
     // Para usar Youtube Player API
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
 
+    // Google Maps
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation(libs.firebase.auth.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+// Aplica el plugin de Google Services al final del archivo
+apply(plugin = "com.google.gms.google-services")
+
